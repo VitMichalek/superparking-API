@@ -26,6 +26,9 @@ MP::addDomain("example.com",array("ZZ"),"F");
 */
 MP::getStats("example.com","2021-08-01","2021-08-19","day");
 
+//vybere vše za celou dobu co je domena v systemu
+MP::getStats("example.com","","","day");
+
 //list your domain
 MP::getDomainList();
 ?>
