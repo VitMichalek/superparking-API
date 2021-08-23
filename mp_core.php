@@ -36,6 +36,10 @@ class MP{
 		$data["to"] = $to;
 		return MP::send("/?getStats",$data);
 	}
+	
+	static function getCategoryList(){
+		return MP::send("/?categoryList",array());
+	}
 }
 
 ?>
