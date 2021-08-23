@@ -18,5 +18,14 @@ MP::addDomain("example.com",array("ZZ"),"F");
 
 
 //get stats
-MP::getStats("example.com","2021-08-1","2021-08-19");
+/*
+1) domena
+2) datum od
+3) datum do
+4) group  - day, month
+*/
+MP::getStats("example.com","2021-08-01","2021-08-19","day");
+
+//list your domain
+MP::getDomainList();
 ?>

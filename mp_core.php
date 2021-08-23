@@ -29,16 +29,21 @@ class MP{
 		$data["type"] = $type;
 		return MP::send("/?changeCategory",$data);
 	}
-	static function getStats($domain,$from="1970-01-01",$to = ""){
+	static function getStats($domain,$from="1970-01-01",$to = "",$group = "day"){
 		$data = array();
 		$data["domain"] = $domain;
 		$data["from"] = $from;
 		$data["to"] = $to;
+		$data["group"] = $group;
 		return MP::send("/?getStats",$data);
 	}
 	
 	static function getCategoryList(){
 		return MP::send("/?categoryList",array());
+	}
+	
+	static function getDomainList(){
+		return MP::send("/?domainList",array());
 	}
 }
 
