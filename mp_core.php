@@ -15,16 +15,18 @@ class MP{
 		curl_close($cURLConnection);
 		return $apiResponse;
 	}
-	static function addDomain($domain,$category = array()){
+	static function addDomain($domain,$category = array(), $type = "R"){
 		$data = array();
 		$data["domain"] = $domain;
-		$data["category"] = $category;		
+		$data["category"] = $category;	
+		$data["type"] = $type;
 		return MP::send("/?addDomain",$data);
 	}
-	static function changeCategory($domain,$category = array()){
+	static function changeCategory($domain,$category = array(), $type = ""){
 		$data = array();
 		$data["domain"] = $domain;
-		$data["category"] = $category;		
+		$data["category"] = $category;	
+		$data["type"] = $type;
 		return MP::send("/?changeCategory",$data);
 	}
 	static function getStats($domain,$from="1970-01-01",$to = ""){
