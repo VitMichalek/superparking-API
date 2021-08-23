@@ -31,4 +31,7 @@ MP::getStats("example.com","","","day");
 
 //list your domain
 MP::getDomainList();
+
+//smazaní domeny - logicky
+MP::delDomain("example.com");
 ?>

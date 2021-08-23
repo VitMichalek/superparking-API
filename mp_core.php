@@ -45,6 +45,9 @@ class MP{
 	static function getDomainList(){
 		return MP::send("/?domainList",array());
 	}
+	static function delDomain(){
+		return MP::send("/?delDomain",array());
+	}
 }
 
 ?>
