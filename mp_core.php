@@ -5,10 +5,10 @@ class MP{
 	static $token = "";
 	static function send($url,$data){
 		$data["token"] = MP::$token;
-		
 
-		$cURLConnection = curl_init('https://mujparking.cz/api/v2');
-		curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, $data);
+
+		$cURLConnection = curl_init('https://mujparking.cz/api/v2'.$url);
+		curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, http_build_query($data));
 		curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
 
 		$apiResponse = curl_exec($cURLConnection);
@@ -18,14 +18,14 @@ class MP{
 	static function addDomain($domain,$category = array(), $type = "R"){
 		$data = array();
 		$data["domain"] = $domain;
-		$data["category"] = $category;	
+		$data["category"] = $category;
 		$data["type"] = $type;
 		return MP::send("/?addDomain",$data);
 	}
 	static function changeCategory($domain,$category = array(), $type = ""){
 		$data = array();
 		$data["domain"] = $domain;
-		$data["category"] = $category;	
+		$data["category"] = $category;
 		$data["type"] = $type;
 		return MP::send("/?changeCategory",$data);
 	}
@@ -37,11 +37,11 @@ class MP{
 		$data["group"] = $group;
 		return MP::send("/?getStats",$data);
 	}
-	
+
 	static function getCategoryList(){
 		return MP::send("/?categoryList",array());
 	}
-	
+
 	static function getDomainList(){
 		return MP::send("/?domainList",array());
 	}
